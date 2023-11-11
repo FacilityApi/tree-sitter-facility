@@ -8,7 +8,15 @@
       "required": false,
       "types": [
         {
+          "type": "comma",
+          "named": true
+        },
+        {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number_literal",
           "named": true
         },
         {
@@ -37,6 +45,14 @@
       "required": true,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "doc_comment",
+          "named": true
+        },
+        {
           "type": "field",
           "named": true
         },
@@ -55,6 +71,52 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "doc_comment",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "external_dto",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "external_enum",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
@@ -98,6 +160,14 @@
           "named": true
         },
         {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "doc_comment",
+          "named": true
+        },
+        {
           "type": "field",
           "named": true
         },
@@ -133,6 +203,14 @@
           "named": true
         },
         {
+          "type": "external_dto",
+          "named": true
+        },
+        {
+          "type": "external_enum",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -156,6 +234,14 @@
           "named": true
         },
         {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "doc_comment",
+          "named": true
+        },
+        {
           "type": "service",
           "named": true
         }
@@ -172,6 +258,10 @@
       "types": [
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -238,6 +328,10 @@
     "named": false
   },
   {
+    "type": "comma",
+    "named": true
+  },
+  {
     "type": "csharp",
     "named": false
   },
@@ -262,6 +356,10 @@
     "named": false
   },
   {
+    "type": "extern",
+    "named": false
+  },
+  {
     "type": "http",
     "named": false
   },
@@ -282,6 +380,10 @@
     "named": false
   },
   {
+    "type": "js",
+    "named": false
+  },
+  {
     "type": "map",
     "named": false
   },
@@ -292,6 +394,10 @@
   {
     "type": "nullable",
     "named": false
+  },
+  {
+    "type": "number_literal",
+    "named": true
   },
   {
     "type": "object",
