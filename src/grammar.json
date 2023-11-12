@@ -326,8 +326,8 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "comma"
+                "type": "STRING",
+                "value": ","
               },
               {
                 "type": "SYMBOL",
@@ -428,8 +428,8 @@
                     "type": "SEQ",
                     "members": [
                       {
-                        "type": "SYMBOL",
-                        "name": "comma"
+                        "type": "STRING",
+                        "value": ","
                       },
                       {
                         "type": "SYMBOL",
@@ -643,10 +643,6 @@
           "value": ".*"
         }
       ]
-    },
-    "comma": {
-      "type": "PATTERN",
-      "value": "\\s*,\\s*"
     },
     "identifier": {
       "type": "PATTERN",

@@ -1,14 +1,18 @@
 {
   "name": "tree-sitter-facility",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "tree-sitter grammer for Facility Service Definitions",
   "main": "bindings/node",
   "scripts": {
-    "tree-sitter": "tree-sitter",
-    "generate": "tree-sitter generate"
+    "build": "tree-sitter generate && node-gyp build",
+    "test": "tree-sitter test"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "tree-sitter",
+    "facility"
+  ],
+  "author": "Bryan Kenote",
+  "license": "MIT",
   "dependencies": {
     "nan": "^2.18.0"
   },
@@ -17,7 +21,7 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.facility",
+      "scope": "source.fsd",
       "file-types": [
         "fsd"
       ]

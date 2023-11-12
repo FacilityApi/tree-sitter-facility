@@ -8,10 +8,6 @@
       "required": false,
       "types": [
         {
-          "type": "comma",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
@@ -326,10 +322,6 @@
   {
     "type": "byte",
     "named": false
-  },
-  {
-    "type": "comma",
-    "named": true
   },
   {
     "type": "csharp",
