@@ -44,7 +44,7 @@ module.exports = grammar({
       seq(
         repeat($.attribute),
         "method",
-        $.identifier,
+        field("name", $.identifier),
         $._field_list,
         ":",
         $._field_list,
@@ -69,9 +69,9 @@ module.exports = grammar({
         "]",
       ),
 
-    _parameter: ($) =>
+    parameter: ($) =>
       seq(
-        $.identifier,
+        field("name", $.identifier),
         ":",
         choice(
           $.string_literal,
@@ -84,13 +84,20 @@ module.exports = grammar({
       seq(
         "(",
         choice(
-          optional($._parameter),
-          seq($._parameter, repeat(seq(",", $._parameter))),
+          optional($.parameter),
+          seq($.parameter, repeat(seq(",", $.parameter))),
         ),
         ")",
       ),
 
-    _template_type: ($) => seq(choice("map", "nullable"), "<", $.type, ">"),
+    template_type: ($) =>
+      seq(
+        choice("map", "nullable"),
+        "<",
+        choice($.template_type, $.list_type, $.type),
+        ">",
+      ),
+    list_type: ($) => seq($.type, "[]"),
 
     type: ($) =>
       seq(
@@ -105,15 +112,20 @@ module.exports = grammar({
           "object",
           "error",
           $.identifier,
-          $._template_type,
         ),
-        optional("[]"),
       ),
 
     _field_list: ($) =>
       seq("{", repeat(choice($.field, $.comment, $.doc_comment)), "}"),
 
-    field: ($) => seq(repeat($.attribute), $.identifier, ":", $.type, ";"),
+    field: ($) =>
+      seq(
+        repeat($.attribute),
+        field("name", $.identifier),
+        ":",
+        choice($.template_type, $.list_type, $.type),
+        ";",
+      ),
 
     doc_heading: ($) => seq("///", /.*/),
     doc_comment: ($) => seq("///", /.*/),

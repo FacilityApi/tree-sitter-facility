@@ -21,12 +21,25 @@
   "extern"
 ] @keyword
 
-(type) @type
+[
+  "map"
+  "nullable"
+  (type)
+] @type
 
 [
   (comment)
   (doc_comment)
 ] @comment
+
+(field
+  name: (identifier) @variable)
+
+(parameter
+  name: (identifier) @property)
+
+(method
+  name: (identifier) @function.method)
 
 (number_literal) @number
 (string_literal) @string
