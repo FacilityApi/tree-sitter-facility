@@ -5,10 +5,20 @@ module.exports = grammar({
     source_file: ($) => $._definition,
 
     _definition: ($) =>
-      seq(repeat(choice($.comment, $.doc_comment, $.attribute)), $.service),
+      seq(
+        repeat(choice($.comment, $.doc_comment, $.attribute)),
+        $.service,
+        repeat($.remark),
+      ),
 
     service: ($) =>
-      seq("service", $.identifier, "{", repeat($._service_item), "}"),
+      seq(
+        "service",
+        field("service_name", $.identifier),
+        "{",
+        repeat($._service_item),
+        "}",
+      ),
 
     _service_item: ($) =>
       choice(
@@ -23,22 +33,34 @@ module.exports = grammar({
         $.comment,
       ),
 
-    dto: ($) => seq("data", $.identifier, $._field_list),
+    dto: ($) => seq("data", field("name", $.identifier), $._field_list),
 
     enum: ($) =>
       seq(
         "enum",
-        $.identifier,
+        field("name", $.identifier),
         "{",
         repeat(choice($.comment, $.doc_comment, seq($.identifier, ","))),
         "}",
       ),
 
     external_dto: ($) =>
-      seq(repeat($.attribute), "extern", "data", $.identifier, ";"),
+      seq(
+        repeat($.attribute),
+        "extern",
+        "data",
+        field("name", $.identifier),
+        ";",
+      ),
 
     external_enum: ($) =>
-      seq(repeat($.attribute), "extern", "enum", $.identifier, ";"),
+      seq(
+        repeat($.attribute),
+        "extern",
+        "enum",
+        field("name", $.identifier),
+        ";",
+      ),
 
     method: ($) =>
       seq(
@@ -53,7 +75,7 @@ module.exports = grammar({
     _attribute_property: ($) =>
       choice(
         "validate",
-        "obselete",
+        "obsolete",
         "required",
         seq(
           choice("validate", "http", "info", "csharp", "js"),
@@ -76,6 +98,7 @@ module.exports = grammar({
         choice(
           $.string_literal,
           $.number_literal,
+          $.range,
           seq($.identifier, repeat(seq(".", $.identifier))),
         ),
       ),
@@ -90,28 +113,32 @@ module.exports = grammar({
         ")",
       ),
 
+    range: ($) => seq($.number_literal, "..", optional($.number_literal)),
+
     template_type: ($) =>
       seq(
-        choice("map", "nullable"),
+        choice("map", "nullable", "result"),
         "<",
-        choice($.template_type, $.list_type, $.type),
+        choice($.template_type, $.list_type, $.required_type, $.type),
         ">",
       ),
     list_type: ($) => seq($.type, "[]"),
+    required_type: ($) => seq($.type, "!"),
 
     type: ($) =>
       seq(
         choice(
           "string",
+          "datetime",
           "boolean",
           "double",
           "int32",
           "int64",
           "decimal",
-          "byte",
+          "bytes",
           "object",
           "error",
-          $.identifier,
+          field("name", $.identifier),
         ),
       ),
 
@@ -123,10 +150,12 @@ module.exports = grammar({
         repeat($.attribute),
         field("name", $.identifier),
         ":",
-        choice($.template_type, $.list_type, $.type),
+        choice($.template_type, $.list_type, $.required_type, $.type),
         ";",
       ),
 
+    remark_header: ($) => seq("#", $.identifier),
+    remark: ($) => seq($.remark_header, repeat(/[a-zA-Z_][a-zA-Z_0-9].*/)),
     doc_heading: ($) => seq("///", /.*/),
     doc_comment: ($) => seq("///", /.*/),
     comment: ($) => seq("//", /.*/),

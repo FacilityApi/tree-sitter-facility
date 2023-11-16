@@ -2,42 +2,7 @@
   {
     "type": "attribute",
     "named": true,
-    "fields": {
-      "attribute_type": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "csharp",
-            "named": false
-          },
-          {
-            "type": "http",
-            "named": false
-          },
-          {
-            "type": "info",
-            "named": false
-          },
-          {
-            "type": "js",
-            "named": false
-          },
-          {
-            "type": "obselete",
-            "named": false
-          },
-          {
-            "type": "required",
-            "named": false
-          },
-          {
-            "type": "validate",
-            "named": false
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": false,
@@ -62,10 +27,21 @@
   {
     "type": "dto",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "comment",
@@ -78,10 +54,6 @@
         {
           "type": "field",
           "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
         }
       ]
     }
@@ -89,10 +61,21 @@
   {
     "type": "enum",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "comment",
@@ -112,17 +95,24 @@
   {
     "type": "external_dto",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "attribute",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         }
       ]
@@ -131,17 +121,24 @@
   {
     "type": "external_enum",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "attribute",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         }
       ]
@@ -172,6 +169,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "required_type",
           "named": true
         },
         {
@@ -266,7 +267,71 @@
           "named": true
         },
         {
+          "type": "range",
+          "named": true
+        },
+        {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "range",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "remark",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "remark_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "remark_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "required_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -275,10 +340,21 @@
   {
     "type": "service",
     "named": true,
-    "fields": {},
+    "fields": {
+      "service_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "comment",
@@ -302,10 +378,6 @@
         },
         {
           "type": "external_enum",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -336,6 +408,10 @@
           "named": true
         },
         {
+          "type": "remark",
+          "named": true
+        },
+        {
           "type": "service",
           "named": true
         }
@@ -355,6 +431,10 @@
           "named": true
         },
         {
+          "type": "required_type",
+          "named": true
+        },
+        {
           "type": "template_type",
           "named": true
         },
@@ -368,17 +448,26 @@
   {
     "type": "type",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
     }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
   },
   {
     "type": "(",
@@ -394,6 +483,10 @@
   },
   {
     "type": ".",
+    "named": false
+  },
+  {
+    "type": "..",
     "named": false
   },
   {
@@ -437,7 +530,7 @@
     "named": false
   },
   {
-    "type": "byte",
+    "type": "bytes",
     "named": false
   },
   {
@@ -446,6 +539,10 @@
   },
   {
     "type": "data",
+    "named": false
+  },
+  {
+    "type": "datetime",
     "named": false
   },
   {
@@ -513,11 +610,15 @@
     "named": false
   },
   {
-    "type": "obselete",
+    "type": "obsolete",
     "named": false
   },
   {
     "type": "required",
+    "named": false
+  },
+  {
+    "type": "result",
     "named": false
   },
   {
