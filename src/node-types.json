@@ -331,10 +331,6 @@
           "named": true
         },
         {
-          "type": "doc_comment",
-          "named": true
-        },
-        {
           "type": "dto",
           "named": true
         },

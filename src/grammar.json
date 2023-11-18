@@ -124,18 +124,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "doc_comment"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "comment"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "doc_comment"
-        },
-        {
-          "type": "SYMBOL",
           "name": "comment"
         }
       ]
@@ -752,19 +740,6 @@
         {
           "type": "STRING",
           "value": ";"
-        }
-      ]
-    },
-    "doc_heading": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "///"
-        },
-        {
-          "type": "PATTERN",
-          "value": ".*"
         }
       ]
     },

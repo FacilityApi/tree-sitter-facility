@@ -24,9 +24,6 @@ module.exports = grammar({
         $.external_dto,
         $.external_enum,
         $.method,
-        $.doc_comment,
-        $.comment,
-        $.doc_comment,
         $.comment,
       ),
 
@@ -151,7 +148,6 @@ module.exports = grammar({
         ";",
       ),
 
-    doc_heading: ($) => seq("///", /.*/),
     doc_comment: ($) => seq("///", /.*/),
     comment: ($) => seq("//", /.*/),
 
