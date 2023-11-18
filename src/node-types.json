@@ -293,36 +293,6 @@
     }
   },
   {
-    "type": "remark",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "remark_header",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "remark_header",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "required_type",
     "named": true,
     "fields": {},
@@ -383,6 +353,10 @@
         {
           "type": "method",
           "named": true
+        },
+        {
+          "type": "remark",
+          "named": true
         }
       ]
     }
@@ -405,10 +379,6 @@
         },
         {
           "type": "doc_comment",
-          "named": true
-        },
-        {
-          "type": "remark",
           "named": true
         },
         {
@@ -463,10 +433,6 @@
   },
   {
     "type": "!",
-    "named": false
-  },
-  {
-    "type": "#",
     "named": false
   },
   {
@@ -612,6 +578,10 @@
   {
     "type": "obsolete",
     "named": false
+  },
+  {
+    "type": "remark",
+    "named": true
   },
   {
     "type": "required",

@@ -73,6 +73,3 @@
 
 (number_literal) @number
 (string_literal) @string
-
-(remark) @text.literal
-(remark_header) @text.title

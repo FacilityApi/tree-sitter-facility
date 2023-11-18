@@ -5,18 +5,14 @@ module.exports = grammar({
     source_file: ($) => $._definition,
 
     _definition: ($) =>
-      seq(
-        repeat(choice($.comment, $.doc_comment, $.attribute)),
-        $.service,
-        repeat($.remark),
-      ),
+      seq(repeat(choice($.comment, $.doc_comment, $.attribute)), $.service),
 
     service: ($) =>
       seq(
         "service",
         field("service_name", $.identifier),
         choice(
-          seq("{", repeat($._service_item), "}"),
+          seq("{", repeat($._service_item), "}", repeat($.remark)),
           seq(";", repeat($._service_item)),
         ),
       ),
@@ -155,8 +151,6 @@ module.exports = grammar({
         ";",
       ),
 
-    remark_header: ($) => seq("#", $.identifier),
-    remark: ($) => seq($.remark_header, repeat(/[a-zA-Z_][a-zA-Z_0-9].*/)),
     doc_heading: ($) => seq("///", /.*/),
     doc_comment: ($) => seq("///", /.*/),
     comment: ($) => seq("//", /.*/),
@@ -166,5 +160,7 @@ module.exports = grammar({
     string_literal: ($) => /".*"/,
 
     number_literal: ($) => /[0-9]+/,
+
+    remark: ($) => /.+/,
   },
 });
