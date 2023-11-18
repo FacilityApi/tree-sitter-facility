@@ -15,9 +15,10 @@ module.exports = grammar({
       seq(
         "service",
         field("service_name", $.identifier),
-        "{",
-        repeat($._service_item),
-        "}",
+        choice(
+          seq("{", repeat($._service_item), "}"),
+          seq(";", repeat($._service_item)),
+        ),
       ),
 
     _service_item: ($) =>
