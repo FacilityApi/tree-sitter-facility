@@ -1,0 +1,19 @@
+=============================================
+Enum
+=============================================
+
+service TestApi {
+    enum One
+    {
+	X,
+    }
+}
+
+---------------------------------------------
+
+(source_file
+    (service
+	service_name: (identifier)
+	(enum
+	  name: (identifier)
+	    (identifier))))
