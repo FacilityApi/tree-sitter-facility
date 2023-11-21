@@ -12,9 +12,10 @@ module.exports = grammar({
         "service",
         field("service_name", $.identifier),
         choice(
-          seq("{", repeat($._service_item), "}", repeat($.remark)),
+          seq("{", repeat($._service_item), "}"),
           seq(";", repeat($._service_item)),
         ),
+        repeat($.remarks),
       ),
 
     _service_item: ($) =>
@@ -157,6 +158,9 @@ module.exports = grammar({
 
     number_literal: ($) => /[0-9]+/,
 
-    remark: ($) => /.+/,
+    // markdownHeading: ($) => /#+\s+/,
+    // serviceItemRemark: ($) => seq($.markdownHeading, /.+/),
+    // remark: ($) => choice($.markdownHeading, $.interleavedMarkdown),
+    remarks: ($) => seq("#", repeat(/.+/)),
   },
 });

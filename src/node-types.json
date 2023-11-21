@@ -293,6 +293,11 @@
     }
   },
   {
+    "type": "remarks",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "required_type",
     "named": true,
     "fields": {},
@@ -351,7 +356,7 @@
           "named": true
         },
         {
-          "type": "remark",
+          "type": "remarks",
           "named": true
         }
       ]
@@ -429,6 +434,10 @@
   },
   {
     "type": "!",
+    "named": false
+  },
+  {
+    "type": "#",
     "named": false
   },
   {
@@ -574,10 +583,6 @@
   {
     "type": "obsolete",
     "named": false
-  },
-  {
-    "type": "remark",
-    "named": true
   },
   {
     "type": "required",

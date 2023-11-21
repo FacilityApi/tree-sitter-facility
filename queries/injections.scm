@@ -1,4 +1,4 @@
 (
-  (remark) @injection.content
+  (remarks) @injection.content
   (#set! injection.language "markdown")
 )
