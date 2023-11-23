@@ -1,0 +1,19 @@
+=============================================
+Error Set
+=============================================
+
+service TestApi {
+    errors One
+    {
+	X,
+    }
+}
+
+---------------------------------------------
+
+(source_file
+    (service
+	service_name: (identifier)
+	(error_set
+	  name: (identifier)
+	    (identifier))))
