@@ -22,6 +22,7 @@
 
 [
   "service"
+  "errors"
   "data"
   "enum"
   "extern"
@@ -31,6 +32,12 @@
 
 (service
   service_name: (identifier) @type)
+
+(error_set
+  (identifier) @property)
+
+(error_set
+  name: (identifier) @type)
 
 (dto
   name: (identifier) @type)

@@ -20,6 +20,7 @@ module.exports = grammar({
 
     _service_item: ($) =>
       choice(
+        $.error_set,
         $.dto,
         $.enum,
         $.external_dto,
@@ -28,14 +29,43 @@ module.exports = grammar({
         $.comment,
       ),
 
-    dto: ($) => seq("data", field("name", $.identifier), $._field_list),
+    error_set: ($) =>
+      seq(
+        repeat($.attribute),
+        "errors",
+        field("name", $.identifier),
+        "{",
+        repeat(
+          choice(
+            $.comment,
+            $.doc_comment,
+            seq(repeat($.attribute), $.identifier, ","),
+          ),
+        ),
+        "}",
+      ),
+
+    dto: ($) =>
+      seq(
+        repeat($.attribute),
+        "data",
+        field("name", $.identifier),
+        $._field_list,
+      ),
 
     enum: ($) =>
       seq(
+        repeat($.attribute),
         "enum",
         field("name", $.identifier),
         "{",
-        repeat(choice($.comment, $.doc_comment, seq($.identifier, ","))),
+        repeat(
+          choice(
+            $.comment,
+            $.doc_comment,
+            seq(repeat($.attribute), $.identifier, ","),
+          ),
+        ),
         "}",
       ),
 
@@ -73,7 +103,15 @@ module.exports = grammar({
         "obsolete",
         "required",
         seq(
-          choice("validate", "http", "info", "csharp", "js"),
+          choice(
+            "validate",
+            "obsolete",
+            "http",
+            "info",
+            "csharp",
+            "js",
+            "proto",
+          ),
           $._parameter_list,
         ),
       ),
@@ -117,7 +155,7 @@ module.exports = grammar({
         choice($.template_type, $.list_type, $.required_type, $.type),
         ">",
       ),
-    list_type: ($) => seq($.type, "[]"),
+    list_type: ($) => seq(choice($.type, $.template_type), "[]"),
     required_type: ($) => seq($.type, "!"),
 
     type: ($) =>

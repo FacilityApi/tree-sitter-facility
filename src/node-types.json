@@ -44,6 +44,10 @@
       "required": false,
       "types": [
         {
+          "type": "attribute",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
@@ -77,6 +81,48 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "doc_comment",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "error_set",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
         {
           "type": "comment",
           "named": true
@@ -194,6 +240,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "template_type",
+          "named": true
+        },
         {
           "type": "type",
           "named": true
@@ -341,6 +391,10 @@
         },
         {
           "type": "enum",
+          "named": true
+        },
+        {
+          "type": "error_set",
           "named": true
         },
         {
@@ -533,6 +587,10 @@
     "named": false
   },
   {
+    "type": "errors",
+    "named": false
+  },
+  {
     "type": "extern",
     "named": false
   },
@@ -582,6 +640,10 @@
   },
   {
     "type": "obsolete",
+    "named": false
+  },
+  {
+    "type": "proto",
     "named": false
   },
   {
