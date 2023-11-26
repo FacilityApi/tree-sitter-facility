@@ -41,22 +41,14 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "attribute",
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "doc_comment",
-          "named": true
-        },
-        {
-          "type": "field",
+          "type": "field_list",
           "named": true
         }
       ]
@@ -79,22 +71,14 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "attribute",
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "doc_comment",
-          "named": true
-        },
-        {
-          "type": "identifier",
+          "type": "values_block",
           "named": true
         }
       ]
@@ -117,22 +101,14 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "attribute",
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "doc_comment",
-          "named": true
-        },
-        {
-          "type": "identifier",
+          "type": "values_block",
           "named": true
         }
       ]
@@ -233,6 +209,29 @@
     }
   },
   {
+    "type": "field_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "doc_comment",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "list_type",
     "named": true,
     "fields": {},
@@ -268,22 +267,14 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "attribute",
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "doc_comment",
-          "named": true
-        },
-        {
-          "type": "field",
+          "type": "field_list",
           "named": true
         }
       ]
@@ -412,6 +403,49 @@
         {
           "type": "remarks",
           "named": true
+        },
+        {
+          "type": "service_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "service_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "dto",
+          "named": true
+        },
+        {
+          "type": "enum",
+          "named": true
+        },
+        {
+          "type": "error_set",
+          "named": true
+        },
+        {
+          "type": "external_dto",
+          "named": true
+        },
+        {
+          "type": "external_enum",
+          "named": true
+        },
+        {
+          "type": "method",
+          "named": true
         }
       ]
     }
@@ -484,6 +518,33 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "values_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "doc_comment",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
     }
   },
   {

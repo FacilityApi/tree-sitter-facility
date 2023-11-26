@@ -7,14 +7,13 @@ module.exports = grammar({
     _definition: ($) =>
       seq(repeat(choice($.comment, $.doc_comment, $.attribute)), $.service),
 
+    service_block: ($) => seq("{", repeat($._service_item), "}"),
+
     service: ($) =>
       seq(
         "service",
         field("service_name", $.identifier),
-        choice(
-          seq("{", repeat($._service_item), "}"),
-          seq(";", repeat($._service_item)),
-        ),
+        choice($.service_block, seq(";", repeat($._service_item))),
         repeat($.remarks),
       ),
 
@@ -29,11 +28,8 @@ module.exports = grammar({
         $.comment,
       ),
 
-    error_set: ($) =>
+    values_block: ($) =>
       seq(
-        repeat($.attribute),
-        "errors",
-        field("name", $.identifier),
         "{",
         repeat(
           choice(
@@ -43,6 +39,14 @@ module.exports = grammar({
           ),
         ),
         "}",
+      ),
+
+    error_set: ($) =>
+      seq(
+        repeat($.attribute),
+        "errors",
+        field("name", $.identifier),
+        $.values_block,
       ),
 
     dto: ($) =>
@@ -50,7 +54,7 @@ module.exports = grammar({
         repeat($.attribute),
         "data",
         field("name", $.identifier),
-        $._field_list,
+        $.field_list,
       ),
 
     enum: ($) =>
@@ -58,15 +62,7 @@ module.exports = grammar({
         repeat($.attribute),
         "enum",
         field("name", $.identifier),
-        "{",
-        repeat(
-          choice(
-            $.comment,
-            $.doc_comment,
-            seq(repeat($.attribute), $.identifier, ","),
-          ),
-        ),
-        "}",
+        $.values_block,
       ),
 
     external_dto: ($) =>
@@ -92,9 +88,9 @@ module.exports = grammar({
         repeat($.attribute),
         "method",
         field("name", $.identifier),
-        $._field_list,
+        $.field_list,
         ":",
-        $._field_list,
+        $.field_list,
       ),
 
     _attribute_property: ($) =>
@@ -175,7 +171,7 @@ module.exports = grammar({
         ),
       ),
 
-    _field_list: ($) =>
+    field_list: ($) =>
       seq("{", repeat(choice($.field, $.comment, $.doc_comment)), "}"),
 
     field: ($) =>
@@ -196,9 +192,6 @@ module.exports = grammar({
 
     number_literal: ($) => /[0-9]+/,
 
-    // markdownHeading: ($) => /#+\s+/,
-    // serviceItemRemark: ($) => seq($.markdownHeading, /.+/),
-    // remark: ($) => choice($.markdownHeading, $.interleavedMarkdown),
     remarks: ($) => seq("#", repeat(/.+/)),
   },
 });

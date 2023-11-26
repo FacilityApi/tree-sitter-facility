@@ -1,6 +1,6 @@
-=============================================
+================================================================================
 Method
-=============================================
+================================================================================
 
 service TestApi {
 	[http(method: GET, path: "/widgets")]
@@ -40,73 +40,76 @@ service TestApi {
 	}
 }
 
----------------------------------------------
+--------------------------------------------------------------------------------
 
 (source_file
-	(service
-		(identifier)
-		(method
-		  (attribute
-		(parameter
-		  (identifier)
-		  (identifier))
-		(parameter
-		  (identifier)
-		  (string_literal)))
-		  (identifier)
-		  (doc_comment)
-		  (field
-		(attribute
-		  (parameter
-			(identifier)
-			(identifier))
-		  (parameter
-			(identifier)
-			(string_literal)))
-		(identifier)
-		(type))
-		  (doc_comment)
-		  (field
-		(identifier)
-		(type))
-		  (doc_comment)
-		  (field
-		(identifier)
-		(type
-		  (identifier)))
-		  (doc_comment)
-		  (field
-		(identifier)
-		(type))
-		  (doc_comment)
-		  (field
-		(attribute)
-		(identifier)
-		(type))
-		  (doc_comment)
-		  (field
-		(identifier)
-		(list_type
-		  (type
-			(identifier))))
-		  (doc_comment)
-		  (field
-		(identifier)
-		(type))
-		  (doc_comment)
-		  (field
-		(attribute)
-		(identifier)
-		(type))
-		  (doc_comment)
-		  (field
-		(attribute
-		  (parameter
-			(identifier)
-			(identifier))
-		  (parameter
-			(identifier)
-			(number_literal)))
-		(identifier)
-		(type
-		  (identifier))))))
+  (service
+    (identifier)
+    (service_block
+      (method
+        (attribute
+          (parameter
+            (identifier)
+            (identifier))
+          (parameter
+            (identifier)
+            (string_literal)))
+        (identifier)
+        (field_list
+          (doc_comment)
+          (field
+            (attribute
+              (parameter
+                (identifier)
+                (identifier))
+              (parameter
+                (identifier)
+                (string_literal)))
+            (identifier)
+            (type))
+          (doc_comment)
+          (field
+            (identifier)
+            (type))
+          (doc_comment)
+          (field
+            (identifier)
+            (type
+              (identifier)))
+          (doc_comment)
+          (field
+            (identifier)
+            (type))
+          (doc_comment)
+          (field
+            (attribute)
+            (identifier)
+            (type)))
+        (field_list
+          (doc_comment)
+          (field
+            (identifier)
+            (list_type
+              (type
+                (identifier))))
+          (doc_comment)
+          (field
+            (identifier)
+            (type))
+          (doc_comment)
+          (field
+            (attribute)
+            (identifier)
+            (type))
+          (doc_comment)
+          (field
+            (attribute
+              (parameter
+                (identifier)
+                (identifier))
+              (parameter
+                (identifier)
+                (number_literal)))
+            (identifier)
+            (type
+              (identifier))))))))
