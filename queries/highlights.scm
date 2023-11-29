@@ -13,12 +13,10 @@
   "}"
 ]  @punctuation.bracket
 
-[
-  (comment)
-  (doc_comment)
-] @comment
+(comment) @comment @spell
+(doc_comment) @comment.documentation @spell
 
-("method") @keyword.function
+"method" @keyword.function
 
 [
   "service"
@@ -46,7 +44,8 @@
   name: (identifier) @type)
 
 (enum
-  (identifier) @property)
+  (values_block
+    (identifier) @constant))
 
 (enum
   name: (identifier) @type)
@@ -76,7 +75,7 @@
   name: (identifier) @variable)
 
 (method
-  name: (identifier) @function.method)
+  name: (identifier) @method)
 
 (number_literal) @number
 (string_literal) @string
