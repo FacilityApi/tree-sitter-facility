@@ -344,8 +344,17 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "method"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "method"
+            },
+            {
+              "type": "STRING",
+              "value": "event"
+            }
+          ]
         },
         {
           "type": "FIELD",

@@ -86,7 +86,7 @@ module.exports = grammar({
     method: ($) =>
       seq(
         repeat($.attribute),
-        "method",
+        choice("method", "event"),
         field("name", $.identifier),
         $.field_list,
         ":",
