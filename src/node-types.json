@@ -652,6 +652,10 @@
     "named": false
   },
   {
+    "type": "event",
+    "named": false
+  },
+  {
     "type": "extern",
     "named": false
   },
