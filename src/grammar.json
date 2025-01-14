@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "facility",
   "rules": {
     "source_file": {
@@ -719,6 +720,10 @@
             },
             {
               "type": "STRING",
+              "value": "float"
+            },
+            {
+              "type": "STRING",
               "value": "int32"
             },
             {
@@ -902,4 +907,3 @@
   "inline": [],
   "supertypes": []
 }
-

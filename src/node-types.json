@@ -453,6 +453,7 @@
   {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -657,6 +658,10 @@
   },
   {
     "type": "extern",
+    "named": false
+  },
+  {
+    "type": "float",
     "named": false
   },
   {
