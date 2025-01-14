@@ -161,6 +161,7 @@ module.exports = grammar({
           "datetime",
           "boolean",
           "double",
+          "float",
           "int32",
           "int64",
           "decimal",

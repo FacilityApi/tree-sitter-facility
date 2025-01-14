@@ -720,6 +720,10 @@
             },
             {
               "type": "STRING",
+              "value": "float"
+            },
+            {
+              "type": "STRING",
               "value": "int32"
             },
             {

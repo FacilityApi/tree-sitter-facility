@@ -661,6 +661,10 @@
     "named": false
   },
   {
+    "type": "float",
+    "named": false
+  },
+  {
     "type": "http",
     "named": false
   },
